@@ -10,10 +10,7 @@ namespace EtHelTal
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Skriv et tal, så vil jeg fortælle om det er et nul, negativt eller positivt tal");
-            // Konverterer tallet fra en string til en int
-            int tal = Convert.ToInt32(Console.ReadLine());
-
+            var tal = getNumber();
             helTal(tal);
 
 
@@ -21,21 +18,28 @@ namespace EtHelTal
 
         }
 
-        private static void helTal(int tal)
+        private static int getNumber()
+        {
+            Console.WriteLine("Skriv et tal, så vil jeg fortælle om det er et nul, negativt eller positivt tal");
+            int tal = Convert.ToInt32(Console.ReadLine());
+            return tal;
+        }
+
+        private static string helTal(int tal)
         {
             if (tal == 0)
             {
-                Console.WriteLine("Du har skrevet 0");
+                return "Du har skrevet 0";
             }
 
-            if (tal > 0)
+            else if (tal > 0)
             {
-                Console.WriteLine("Du har skrevet et positivt tal");
+                return "Du har skrevet et positivt tal";
             }
 
-            if (tal < 0)
+            else
             {
-                Console.WriteLine("Du har skrevet et negativt tal");
+                return "Du har skrevet et negativt tal";
             }
         }
     }
